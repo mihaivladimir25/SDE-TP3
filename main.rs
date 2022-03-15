@@ -1,4 +1,4 @@
-use std::env;
+use std::{env, process};
 
 fn divise(a: i32, b:  i32) -> Option<i32> {
 
@@ -18,6 +18,22 @@ fn div(a: i32, b: i32) -> Option<i32>{
     }
 }
 
+fn add(a: i32, b: i32){
+    println!("{}", a+b);
+}
+
+fn sub(a: i32, b: i32){
+    println!("{}", a-b);
+}
+
+fn mul(a: i32, b: i32){
+    println!("{}", a*b);
+}
+
+fn rem(a: i32, b: i32){
+    println!("{}", a%b);
+}
+
 fn main(){
 
     let a : i32 = 20;
@@ -25,8 +41,8 @@ fn main(){
     
     let args: Vec<String> = env::args().collect();
 
-    let text1 = &args[0];
-    let text2 = &args[1];
+    let text1 = &args[1];
+    let text2 = &args[2];
 
     let c: i32 = text1.parse().unwrap();
     let d: i32 = text2.parse().unwrap();
@@ -39,10 +55,22 @@ fn main(){
     }
 
     match div(c, d){
-        None => return -1,
+        None => {process::exit(-1);}
         Some(rez) =>(
             println!{"{} / {} = {}", c, d, rez}
         )
     }
 
+    // println!("c + d = ");
+    // add(c, d);
+    
+    // println!("c - d = ");
+    // sub(c, d);
+
+    // println!("c * d = ");
+    // mul(c, d);
+
+    match func(c, d){
+        
+    }
 }
